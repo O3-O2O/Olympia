@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap');
+
+/* ================= RESET ================= */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: radial-gradient(circle at top, #160028, #000);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp{
+    from{ opacity: 0; transform: translateY(30px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeScale{
+    from{ opacity: 0; transform: scale(0.9); }
+    to{ opacity: 1; transform: scale(1); }
+}
+
+@keyframes glowIn{
+    from{ opacity: 0; box-shadow: 0 0 0 rgba(200,120,255,0); }
+    to{ opacity: 1; box-shadow: 0 0 45px rgba(200,120,255,0.7); }
+}
+
+/* ================= CONTAINER ================= */
+.container{
+    height: 100vh;
+    padding: 24px;
+    display: grid;
+    grid-template-rows: 3fr 1fr;
+    gap: 20px;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* ================= QUIZ AREA ================= */
+.quiz-container{
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 24px;
+}
+
+/* ================= IMAGE SIDE ================= */
+.quiz-direct{
+    position: relative;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #14001f, #000);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 0 40px rgba(160,70,255,0.35);
+    overflow: hidden;
+    animation: fadeScale 0.9s ease forwards;
+}
+
+/* ===== IMAGE GỐC ===== */
+.image-quiz:first-child{
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    transition: 
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.6s ease;
+
+}
+
+.image-quiz:first-child img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== LAYER CHE (KHÔNG GRID) ===== */
+.image-quiz:last-child{
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+}
+
+/* ================= CHE BLOCK ================= */
+.quiz-1,
+.quiz-2,
+.quiz-3,
+.quiz-4{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+
+    background: linear-gradient(135deg, #1a002e, #05000a);
+    border: 1px solid rgba(200,140,255,0.35);
+    box-shadow:
+        inset 0 0 30px rgba(160,80,255,0.25),
+        0 0 20px rgba(120,60,200,0.3);
+
+    transition: 
+        opacity 0.6s ease,
+        transform 0.6s ease,
+        filter 0.6s ease;
+
+}
+
+/* ===== VỊ TRÍ TỪNG Ô ===== */
+.quiz-1{ top: 0; left: 0;}
+.quiz-2{ top: 0; right: 0;}
+.quiz-3{ bottom: 0; left: 0;}
+.quiz-4{ bottom: 0; right: 0;}
+
+/* ===== Ô TRUNG TÂM ===== */
+.quiz-support{
+    position: absolute;
+    inset: 28%;
+    z-index: 4;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0c34a, #b98b1f);
+    box-shadow:
+        0 0 45px rgba(255,200,80,0.9),
+        inset 0 0 20px rgba(255,255,200,0.4);
+    animation: glowIn 1.2s ease forwards;
+}
+
+/* ===== KHI MỞ ĐÚNG Ô ===== */
+
+/* ================= ANSWER SHEET ================= */
+.answer-sheet{
+    display: grid;
+    grid-template-rows: auto repeat(4, 1fr);
+    gap: 14px;
+    color: #eee;
+    animation: fadeUp 0.9s ease forwards;
+}
+
+/* ================= TITLE ================= */
+.title{
+    padding: 16px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #2a0045, #0a0015);
+    border: 1px solid rgba(255,255,255,0.18);
+    box-shadow: 0 0 25px rgba(190,100,255,0.45);
+}
+
+.title h1{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #eadcff;
+    text-align: center;
+}
+
+/* ================= QUESTION ================= */
+.question{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 14px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #13001f, #050008);
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: 0.3s ease;
+}
+
+.question:hover{
+    transform: translateX(6px);
+    box-shadow: 0 0 18px rgba(180,100,255,0.6);
+}
+
+.question span{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    color: #cfa6ff;
+}
+
+/* ================= BOTTOM ================= */
+.choose-question{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 16px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #0b0016, #000);
+    border: 1px solid rgba(255,255,255,0.12);
+}
+
+.btn-choose{
+    border-radius: 18px;
+    background: linear-gradient(145deg, #150021, #050008);
+    border: 1px solid rgba(200,140,255,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-choose:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 0 25px rgba(200,120,255,0.6);
+}
+
+.btn-choose span{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #e6d7ff;
+}

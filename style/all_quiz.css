@@ -1,0 +1,218 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ================= BODY ================= */
+body {
+    min-height: 100vh;
+    width: 100vw;
+    overflow-y: auto;
+    background: radial-gradient(circle at top, #2a0040, #0b0015 70%);
+}
+
+/* ================= MAIN LAYOUT ================= */
+.question-area {
+    min-height: calc(100vh - 48px);
+    width: 100vw;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 24px;
+    padding: 24px;
+}
+
+/* ================= QUESTION ================= */
+.question-show {
+    background: linear-gradient(145deg, #2a0050, #14001f);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0 0 20px rgba(255, 211, 77, 0.35),
+        0 0 30px rgba(160, 80, 255, 0.45);
+    animation: fadeUp 0.6s ease-out;
+}
+
+.question-show div {
+    font-size: 72px;
+    font-weight: 800;
+    color: #ffd34d;
+    text-shadow: 0 0 18px rgba(255, 211, 77, 0.9);
+}
+
+/* ================= ANSWER AREA ================= */
+.answer {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: 20px;
+    justify-items: start;
+}
+
+/* ================= ANSWER BUTTON ================= */
+.answer button {
+    width: 70%;
+    border-radius: 18px;
+    border: 1px solid rgba(200, 120, 255, 0.4);
+    background: linear-gradient(145deg, #1b002a, #0f0019);
+    color: #eaeaea;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    padding: 0 50px;
+    text-align: start;
+
+    position: relative;
+    overflow: hidden;
+
+    box-shadow:
+        inset 0 0 14px rgba(180, 80, 255, 0.25),
+        0 0 14px rgba(0, 0, 0, 0.7);
+
+    opacity: 0;
+    animation: fadeUp 0.5s ease-out forwards;
+}
+
+.answer button:disabled {
+    opacity: 1;              /* ❗ quan trọng nhất */
+    cursor: default;
+    filter: none;
+}
+
+
+.answer button:nth-child(1) { animation-delay: 0.2s; }
+.answer button:nth-child(2) { animation-delay: 0.35s; }
+.answer button:nth-child(3) { animation-delay: 0.5s; }
+.answer button:nth-child(4) { animation-delay: 0.65s; }
+
+/* ================= HOVER ================= */
+.answer button:hover {
+    transform: scale(1.02);
+    color: #ffd34d;
+    border-color: #ffd34d;
+    box-shadow:
+        0 0 22px rgba(255, 211, 77, 0.8),
+        inset 0 0 16px rgba(255, 211, 77, 0.35);
+}
+
+/* ================= ACTIVE ================= */
+.answer button:active {
+    transform: scale(0.97);
+}
+
+/* ================= CORRECT ================= */
+.answer button.correct {
+    background: linear-gradient(145deg, #0b3d1e, #062612);
+    color: #7dffb3;
+    border-color: #7dffb3;
+    box-shadow: 0 0 30px rgba(125, 255, 179, 0.9);
+}
+/* Light sweep effect */
+.answer button.correct::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    animation: sweep 0.9s ease-out;
+}
+
+/* ================= WRONG ================= */
+.answer button.wrong {
+    background: linear-gradient(145deg, #3d0b14, #26060b);
+    color: #ff7d7d;
+    border-color: #ff7d7d;
+    box-shadow: 0 0 30px rgba(255, 125, 125, 0.9);
+    animation: shake 0.35s;
+}
+
+/* ================= BACK BUTTON ================= */
+.back-place {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+
+    width: 72px;
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+    color: #ffd34d;
+
+    background: radial-gradient(circle at top, #3a0060, #14001f);
+    border-radius: 50%;
+    border: 1px solid rgba(255, 211, 77, 0.45);
+
+    cursor: pointer;
+    z-index: 999;
+
+    box-shadow:
+        0 0 18px rgba(255, 211, 77, 0.6),
+        inset 0 0 10px rgba(255, 211, 77, 0.25);
+
+    transition: all 0.25s ease;
+}
+
+/* Hover */
+.back-place:hover {
+    transform: scale(1.12) rotate(-6deg);
+    box-shadow:
+        0 0 30px rgba(255, 211, 77, 0.9),
+        inset 0 0 14px rgba(255, 211, 77, 0.35);
+}
+
+/* Click */
+.back-place:active {
+    transform: scale(0.95);
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes sweep {
+    from { left: -100%; }
+    to { left: 100%; }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .question-show div {
+        font-size: 48px;
+    }
+
+    .answer button {
+        font-size: 20px;
+        width: 90%;
+    }
+}
