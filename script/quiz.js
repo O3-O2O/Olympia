@@ -4,12 +4,18 @@ window.teleport = async (number) => {
 
 }
 
+let n = 0
+
 window.loading = async () => {
 
     db.collection("Olympia").get()
         .then(snapshot => {
 
+            
+
             snapshot.forEach(doc => {
+
+                n++
 
                 const data = doc.data(); // ✅ LẤY DATA ĐÚNG
 
@@ -28,12 +34,20 @@ window.loading = async () => {
 
             });
 
+            if(n==4){
+
+                document.getElementById("btn-5").classList.remove("become-none")
+
+            }
+
         })
         .catch(err => {
             console.error("Firestore error:", err);
         });
 
 }
+
+
 
 
 loading()

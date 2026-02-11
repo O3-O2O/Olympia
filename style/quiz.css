@@ -208,3 +208,9 @@ body{
     font-size: 1.2rem;
     color: #e6d7ff;
 }
+
+.become-none{
+
+    display: none;
+
+}
