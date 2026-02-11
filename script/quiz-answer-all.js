@@ -1,44 +1,36 @@
-const buttons = document.querySelectorAll(".answer button");
-let answered = false;
+// =========================
+// CHỌN ĐÁP ÁN
+// =========================
+function selectAnswer(button) {
 
-function falseAns(btn) {
-    if (answered) return;
-    answered = true;
+    const answerBox = document.getElementById("answer")
+    const buttons = answerBox.querySelectorAll(".answer-btn")
+    const isCorrect = button.dataset.correct === "true"
 
-    btn.classList.add("wrong");
-    lockButtons(btn);
+    // ✅ LƯU FIREBASE
+    saveAnswerToFirebase(isCorrect)
 
-    saveAnswerToFirebase(false); // ❌ LƯU SAI
+    // KHÓA tất cả ngay khi chọn
+    buttons.forEach(btn => {
+        btn.disabled = true
+        btn.style.cursor = "not-allowed"
+    })
 
-    setTimeout(showCorrectAnswer, 1000);
-}
+    if (isCorrect) {
 
+        button.classList.add("correct")
 
-function trueAns(btn) {
-    if (answered) return;
-    answered = true;
+    } else {
 
-    btn.classList.add("correct");
-    lockButtons(btn);
+        button.classList.add("wrong")
 
-    saveAnswerToFirebase(true); // ✅ LƯU ĐÚNG
-}
-
-
-function showCorrectAnswer() {
-    const correctBtn = document.querySelector(
-        '.answer button[data-correct="true"]'
-    );
-
-    if (correctBtn) {
-        correctBtn.classList.add("correct");
+        setTimeout(() => {
+            const correctBtn = answerBox.querySelector('[data-correct="true"]')
+            if (correctBtn) {
+                correctBtn.classList.add("correct")
+            }
+        }, 1000)
     }
-}
-
-function lockButtons(selectedBtn) {
-    buttons.forEach(button => {
-        button.disabled = true;
-    });
 }
 
 function backToStart(){
