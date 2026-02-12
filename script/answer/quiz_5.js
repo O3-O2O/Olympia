@@ -1,6 +1,6 @@
 function answerOpen() {
 
-    fetch("../json/cau.json")
+    fetch("https://68ce57f66dc3f350777eb99b.mockapi.io/olympia")
         .then(res => res.json())
         .then(data => {
 
