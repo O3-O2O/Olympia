@@ -214,3 +214,93 @@ body{
     display: none;
 
 }
+
+/* ============================= */
+/* ✅ TABLET (iPad) */
+/* ============================= */
+@media (max-width: 1024px){
+
+    body{
+        overflow: auto;
+    }
+
+    .container{
+        height: auto;
+        min-height: 100vh;
+        grid-template-rows: auto auto;
+    }
+
+    .quiz-container{
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-direct{
+        height: 420px;
+    }
+
+    .answer-sheet{
+        grid-template-rows: auto repeat(4, auto);
+    }
+
+    .question{
+        padding: 18px;
+    }
+
+    .choose-question{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .btn-choose{
+        padding: 18px 0;
+    }
+
+}
+
+
+/* ============================= */
+/* ✅ MOBILE */
+/* ============================= */
+@media (max-width: 600px){
+
+    .container{
+        padding: 14px;
+        gap: 16px;
+    }
+
+    .quiz-direct{
+        height: 300px;
+        border-radius: 14px;
+    }
+
+    .title h1{
+        font-size: 1rem;
+    }
+
+    .question{
+        padding: 12px;
+        gap: 8px;
+    }
+
+    .question span{
+        font-size: 1.2rem;
+    }
+
+    .choose-question{
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .btn-choose{
+        padding: 14px 0;
+    }
+
+    .btn-choose span{
+        font-size: 1rem;
+    }
+
+    .quiz-support{
+        inset: 32%;
+    }
+
+}
