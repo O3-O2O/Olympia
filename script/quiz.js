@@ -4,6 +4,24 @@ window.teleport = async (number) => {
 
 }
 
+function photoIn(){
+
+    fetch("https://68ce57f66dc3f350777eb99b.mockapi.io/olympia")
+        .then(res => res.json())
+        .then(data => {
+
+            const photo = data[5]
+
+            document.getElementById("photo").innerHTML = `<img src="${photo.bg_url}">`
+
+            document.getElementById("title").innerHTML = `<h1>Từ khóa: ${photo.number} chữ</h1>`
+
+        })
+
+}
+
+photoIn()
+
 let n = 0
 
 window.loading = async () => {
