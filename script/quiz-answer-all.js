@@ -1,0 +1,63 @@
+// =========================
+// CHỌN ĐÁP ÁN
+// =========================
+function selectAnswer(button) {
+
+    const answerBox = document.getElementById("answer")
+    const buttons = answerBox.querySelectorAll(".answer-btn")
+    const isCorrect = button.dataset.correct === "true"
+
+    // ✅ LƯU FIREBASE
+    saveAnswerToFirebase(isCorrect)
+
+    // KHÓA tất cả ngay khi chọn
+    buttons.forEach(btn => {
+        btn.disabled = true
+        btn.style.cursor = "not-allowed"
+    })
+
+    if (isCorrect) {
+
+        button.classList.add("correct")
+        document.getElementById("explaination").style.display = "flex"
+
+    } else {
+
+        button.classList.add("wrong")
+
+        setTimeout(() => {
+            const correctBtn = answerBox.querySelector('[data-correct="true"]')
+            if (correctBtn) {
+                correctBtn.classList.add("correct")
+            }
+        }, 1000)
+        document.getElementById("explaination").style.display = "flex"
+    }
+}
+
+function backToStart(){
+
+    window.location.href = "quiz.html"
+
+}
+
+let open_close = 0
+
+window.explainationOpen = async () => {
+
+    open_close++
+
+    if(open_close == 1){
+
+        document.getElementById("explain").classList.add("active")
+
+    }
+
+    else{
+
+        document.getElementById("explain").classList.remove("active")
+        open_close = 0
+
+    }
+
+}
