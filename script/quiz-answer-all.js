@@ -1,6 +1,13 @@
 // =========================
 // CHỌN ĐÁP ÁN
 // =========================
+
+const musicTrue = new Audio("../soundtrack/VĐ_đúng_O7.mp3")
+const musicFalse = new Audio("../soundtrack/VĐ_sai_O7.mp3")
+
+musicTrue.volume = 1
+musicFalse.volume = 1
+
 function selectAnswer(button) {
 
     const answerBox = document.getElementById("answer")
@@ -19,11 +26,13 @@ function selectAnswer(button) {
     if (isCorrect) {
 
         button.classList.add("correct")
+        musicTrue.play()
         document.getElementById("explaination").style.display = "flex"
 
     } else {
 
         button.classList.add("wrong")
+        musicFalse.play()
 
         setTimeout(() => {
             const correctBtn = answerBox.querySelector('[data-correct="true"]')
@@ -61,3 +70,4 @@ window.explainationOpen = async () => {
     }
 
 }
+
