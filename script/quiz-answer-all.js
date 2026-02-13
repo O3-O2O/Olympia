@@ -19,6 +19,7 @@ function selectAnswer(button) {
     if (isCorrect) {
 
         button.classList.add("correct")
+        document.getElementById("explaination").style.display = "flex"
 
     } else {
 
@@ -30,11 +31,33 @@ function selectAnswer(button) {
                 correctBtn.classList.add("correct")
             }
         }, 1000)
+        document.getElementById("explaination").style.display = "flex"
     }
 }
 
 function backToStart(){
 
     window.location.href = "quiz.html"
+
+}
+
+let open_close = 0
+
+window.explainationOpen = async () => {
+
+    open_close++
+
+    if(open_close == 1){
+
+        document.getElementById("explain").classList.add("active")
+
+    }
+
+    else{
+
+        document.getElementById("explain").classList.remove("active")
+        open_close = 0
+
+    }
 
 }

@@ -10,6 +10,13 @@ function answerOpen() {
 
             document.getElementById("quest").innerHTML = `<div>${load.quest}</div>`
 
+            document.getElementById("explain").innerHTML = `
+            
+                <h2>Giải thích</h2>
+                <span>${load.explain}</span>
+
+            `
+
             let answers = [
                 { text: load.dung, correct: true },
                 { text: load.sai_1, correct: false },
