@@ -304,3 +304,149 @@ body{
     }
 
 }
+
+/* ================= GUESS BUTTON (ở ảnh) ================= */
+.guess-btn{
+    position: absolute;
+    bottom: 18px;
+    right: 18px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    background: linear-gradient(135deg, #ffcc66, #ff9900);
+    box-shadow:
+        0 0 25px rgba(255,170,0,0.8),
+        inset 0 0 10px rgba(255,255,255,0.5);
+
+    transition: 0.3s ease;
+    z-index: 10;
+}
+
+.guess-btn:hover{
+    transform: scale(1.1);
+    box-shadow:
+        0 0 35px rgba(255,200,0,1),
+        inset 0 0 15px rgba(255,255,255,0.7);
+}
+
+/* ================= GUESS FORM ================= */
+.guess-open{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    gap: 16px;
+    padding: 28px 36px;
+
+    border-radius: 20px;
+    background: linear-gradient(145deg, #1a002e, #000);
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 0 60px rgba(180,100,255,0.6),
+        inset 0 0 20px rgba(200,120,255,0.3);
+
+    z-index: 999;
+    animation: fadeScale 0.4s ease;
+    transition: 0.3s ease;
+
+}
+
+/* Ẩn mặc định nếu muốn */
+.hidden{
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: 0.3s ease;
+}
+
+
+/* ================= INPUT ================= */
+.input-guess{
+    width: 260px;
+    padding: 14px 18px;
+
+    border-radius: 14px;
+    border: 1px solid rgba(200,140,255,0.4);
+
+    background: #0a0015;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+
+    transition: 0.3s ease;
+}
+
+.input-guess:focus{
+    border-color: #cfa6ff;
+    box-shadow: 0 0 15px rgba(200,140,255,0.7);
+}
+
+/* ================= SUBMIT BUTTON ================= */
+#guessing{
+    padding: 14px 22px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+
+    background: linear-gradient(135deg, #7a00ff, #b266ff);
+    color: white;
+
+    box-shadow: 0 0 20px rgba(180,100,255,0.7);
+    transition: 0.3s ease;
+}
+
+#guessing:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(200,120,255,1);
+}
+/* ================= RESPONSIVE GUESS FORM ================= */
+
+/* ===== TABLET ===== */
+@media (max-width: 1024px){
+
+    .guess-open{
+        width: 90%;
+        max-width: 500px;
+        padding: 24px;
+        gap: 14px;
+    }
+
+    .input-guess{
+        width: 100%;
+    }
+
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px){
+
+    .guess-open{
+        flex-direction: column;
+        width: 92%;
+        padding: 20px;
+        gap: 16px;
+        border-radius: 16px;
+    }
+
+    .input-guess{
+        width: 100%;
+        font-size: 0.95rem;
+        padding: 12px 14px;
+    }
+
+    #guessing{
+        width: 100%;
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+}
