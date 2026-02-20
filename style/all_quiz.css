@@ -38,10 +38,17 @@ body {
 }
 
 .question-show div {
-    font-size: 72px;
+    font-size: clamp(28px, 4.2vw, 64px);
     font-weight: 800;
     color: #ffd34d;
     text-shadow: 0 0 18px rgba(255, 211, 77, 0.9);
+
+    text-align: center;
+    padding: 30px 40px;
+
+    line-height: 1.25;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* ================= ANSWER AREA ================= */
