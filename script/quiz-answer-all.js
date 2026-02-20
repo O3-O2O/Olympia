@@ -71,3 +71,19 @@ window.explainationOpen = async () => {
 
 }
 
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "Enter"){
+
+        e.preventDefault()
+        document.getElementById("explain").classList.remove("active")
+
+    }else if(e.key === "Escape"){
+
+        e.preventDefault()
+        document.getElementById("explain").classList.remove("active")
+
+    }
+    open_close = 0
+
+})
