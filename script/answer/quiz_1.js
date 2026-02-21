@@ -12,6 +12,8 @@ function answerOpen() {
             
                 <h2>Giải thích</h2>
                 <span>${load.explain}</span>
+                <p><span>${load.de_1}</span></p>
+                <p><span>${load.de_2}</span></p>
 
             `
 
