@@ -8,12 +8,21 @@ function answerOpen() {
 
             const load = data[4]
 
-            document.getElementById("quest").innerHTML = `<div>${load.quest}</div>`
+            document.getElementById("quest").innerHTML = `<div>${load.quest}</div>
+                                                        <button onclick="expandImage()"><img src="../image/z7557959217023_094e390bb675cad23974fce60094d82d.jpg"></button>
+            
+            `
 
             document.getElementById("explain").innerHTML = `
             
                 <h2>Giải thích</h2>
                 <span>${load.explain}</span>
+                <p><span>${load.de_1}</span></p>
+                <p><span>${load.de_2}</span></p>
+                <p><span>${load.de_3}</span></p>
+                <p><span>${load.de_4}</span></p>
+                <p><span>${load.de_5}</span></p>
+                <p><span>${load.de_6}</span></p>
 
             `
 
@@ -60,3 +69,17 @@ function shuffle(array) {
 // AUTO LOAD
 // =========================
 document.addEventListener("DOMContentLoaded", answerOpen)
+
+window.expandImage = () => {
+
+    const modal = document.getElementById("imgModal")
+    const modalImg = document.getElementById("modalImage")
+
+    modalImg.src = "../image/z7557959217023_094e390bb675cad23974fce60094d82d.jpg"
+
+    modal.classList.add("active")
+}
+
+function closeImage(){
+    document.getElementById("imgModal").classList.remove("active")
+}

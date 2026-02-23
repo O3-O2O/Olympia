@@ -37,6 +37,21 @@ body {
     animation: fadeUp 0.6s ease-out;
 }
 
+.question-show img {
+    max-width: 100%;
+    max-height: 30vh;
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    border-radius: 16px;
+}
+
+.question-show button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
 .question-show div {
     font-size: clamp(28px, 4.2vw, 64px);
     font-weight: 800;
@@ -414,4 +429,70 @@ body {
         padding: 12px 14px;
     }
 
+}
+
+
+
+
+
+
+
+
+/* ================= IMAGE MODAL ================= */
+
+.img-modal{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+
+    z-index: 2000;
+}
+
+.img-modal.active{
+    opacity: 1;
+    visibility: visible;
+}
+
+.img-modal img{
+    max-width: 90%;
+    max-height: 85vh;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255, 211, 77, 0.7);
+    animation: zoomIn 0.3s ease;
+}
+
+/* Nút đóng */
+.close-img{
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    font-size: 40px;
+    color: #ffd34d;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.close-img:hover{
+    transform: scale(1.2);
+    color: white;
+}
+
+@keyframes zoomIn{
+    from{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    to{
+        transform: scale(1);
+        opacity: 1;
+    }
 }
