@@ -134,7 +134,7 @@ guessing.addEventListener("click", () => {
 
             const accept_guess = data[5].dung.toLowerCase();
 
-            if(userAnswer === (accept_guess && "huyết giác")){
+            if(userAnswer === (accept_guess || "huyết giác")){
 
                 // Mở toàn bộ ảnh
                 for(let i = 1; i <= 5; i++){
@@ -160,3 +160,4 @@ guessing.addEventListener("click", () => {
         });
 
 });
+
