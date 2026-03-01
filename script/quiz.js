@@ -160,4 +160,3 @@ guessing.addEventListener("click", () => {
         });
 
 });
-
